@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página 2</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+  <!-- Primera franja gris -->
+  <div class="top-line"></div>
+
+  <!-- Segunda franja gris con logo, botones y burbujas -->
+  <div class="top-line2">
+    <img src="../logo/images/logo.jpg" alt="Logo" class="logo-img">
+
+    <div class="button-group">
+      <!-- Botón con lista desplegable -->
+      <div class="dropdown">
+        <button class="btn-productos">
+          Nuestros Productos <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown-menu">
+          <a href="../items/cab-estructurado/index-cab-estruc.html">Cableado Estructurado 🔌</a>
+          <a href="../items/instrumentacion/instrumentacion.html">Instrumentacion 📟</a>
+          <a href="../items/herramientas/herramientas.html"> Herramientas 🛠️</a>
+          <a href="../items/semiconductores-controladores/semiconductores-controladores.html">  Semiconductores y Controladores ⚡</a>
+          <a href="../items/baterias-pilas/baterias-pilas.html"> Baterias - Pilas 🔋</a>
+          <a href="../items/audio-video-accsesorios/audio-video-accsesorios.html">  Audio - Video - Accsesorios 🎥 📹 📺</a>
+          <a href="../items/coaxial-datos-electrico/coaxial-datos-electrico.html">  Coaxial Datos  Y Electrico ⚡🧵</a>
+          <a href="../items/Mantenimiento/mantenimiento.html"> Mantenimiento 🛠️</a>
+        </div>
+      </div>
+
+     <!--  <button class="btn-productos2">Nuestras Marcas</button>-->
+      <a href="../contacto/contacto.html" class="btn-productos3">Contáctanos</a>
+    </div>
+
+    <!-- Burbujas -->
+    <div class="bubbles-container">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <!-- Carrusel -->
+    <div class="carousel">
+      <img src="../logo/images/1.jpeg" alt="Imagen 1">
+      <img src="../logo/images/2.jpeg" alt="Imagen 2">
+      <img src="../logo/images/3.jpeg" alt="Imagen 3">
+    </div>
+
+    <!-- Recuadro derecho -->
+    <div class="gray-box large fade-in">
+      <center><h2>Atlantic Electronics</h2></center> 
+      <p>
+        * Somos una empresa dedicada a ofrecer soluciones tecnológicas innovadoras que hacen tu vida más fácil y moderna.
+      </p>
+      <br>
+      <p>
+        * En Atlantic Electronics, conectamos innovación, calidad y servicio para ofrecerte productos que hacen tu vida más práctica, segura y conectada.
+      </p>
+    </div>
+  </div>
+
+  <!-- Segundo recuadro debajo (Nuestra Misión) -->
+  <div class="bottom-content">
+    <div class="gray-box small from-left">
+      <center><h3>Nuestra Misión</h3></center> 
+      <p>
+        Brindar soluciones tecnológicas innovadoras en electrónica y telecomunicaciones que mejoren la vida de nuestros clientes, ofreciendo productos de alta calidad, atención personalizada y un servicio confiable. 
+      </p>
+      <br>
+      <p>
+        Nos comprometemos a conectar a las personas con la tecnología del futuro, impulsando el progreso y la comunicación en cada entorno.
+      </p>
+    </div>
+  </div>
+
+  <!-- Tercer recuadro debajo (Nuestra Visión) -->
+  <div class="bottom-content">
+    <div class="gray-box small from-right">
+      <center><h3>Nuestra Visión</h3></center> 
+      <p>
+        Ser la tienda líder en electrónica y telecomunicaciones reconocida por su innovación, calidad y compromiso con la satisfacción del cliente, convirtiéndonos en un referente tecnológico que impulse la conectividad y el desarrollo digital en nuestra comunidad y más allá.
+      </p>
+    </div>
+  </div>
+
+
+  
+
+  <!-- Script del carrusel -->
+  <script>
+    const images = document.querySelectorAll('.carousel img');
+    let index = 0;
+    setInterval(() => {
+      images.forEach(img => img.style.display = 'none');
+      images[index].style.display = 'block';
+      index = (index + 1) % images.length;
+    }, 3000);
+  </script>
+
+  <!-- Script de animación de entrada -->
+  <script>
+    window.addEventListener('load', () => {
+      const boxes = document.querySelectorAll('.gray-box.small');
+      boxes.forEach((box, i) => {
+        setTimeout(() => {
+          box.classList.add('show');
+        }, 120 + i * 120);
+      });
+
+      const mainBox = document.querySelector('.gray-box.large.fade-in');
+      if (mainBox) {
+        setTimeout(() => {
+          mainBox.classList.add('show');
+        }, 200);
+      }
+    });
+  </script>
+
+ <!-- Pie de página -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2025 Atlantic Electronics. Todos los derechos reservados.</p>
+    <p>
+      Contáctanos: 
+      <a href="mailto:info@atlantic-electronics.com">atlantic-electronics@outlook.com</a> | 
+      Tel: 099 295 2326
+    </p>
+    <div class="social-icons">
+      <a href="#" class="social-btn"><img src="../logo/images/facebook.jpg" alt="Facebook">
+      <a href="#" class="social-btn"><img src="../logo/images/whats.jpg" alt="Whatsapp"></a>
+      <a href="#" class="social-btn"><img src="../logo/images/instagram.jpg" alt="Twitter"></a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+
+
+</html>

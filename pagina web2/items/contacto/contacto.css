@@ -1,0 +1,373 @@
+/* ======== CONFIGURACIÓN GENERAL ======== */
+html, body {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #0d47a1 0%, #5a6d8b 50%, #808080 100%);
+  font-family: "Inter", sans-serif;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto; /* ← habilita el scroll */
+  padding-top: 135px; /* espacio para las franjas fijas */
+  min-height: 100vh;
+}
+/* ======== PRIMERA FRANJA GRIS ======== */
+.top-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background-color: #5a5a5a;
+  z-index: 100;
+}
+
+/* ======== SEGUNDA FRANJA ======== */
+.top-line2 {
+  position: fixed;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #808080;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 105;
+}
+
+/* ======== LOGO ======== */
+.logo-img {
+  height: 80px;
+  border-radius: 5px;
+}
+
+/* ======== BOTONES ======== */
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
+  position: relative;
+  z-index: 106;
+}
+
+.btn-productos,
+.btn-productos2,
+.btn-productos3 {
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0d47a1;
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-productos:hover,
+.btn-productos2:hover,
+.btn-productos3:hover {
+  transform: scale(1.1);
+  background-color: #f0f0f0;
+}
+
+/* ======== MENÚ DESPLEGABLE ======== */
+.dropdown {
+  position: relative;
+  z-index: 9999;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.dropdown-menu a {
+  display: block;
+  color: #0d47a1;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #e0e0e0;
+}
+
+/* ======== BURBUJAS ======== */
+.bubbles-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-120px) scale(1.5); opacity: 0; }
+}
+
+/* Tamaños aleatorios */
+.bubble:nth-child(1){width:10px;height:10px;left:10%;animation-delay:0s;}
+.bubble:nth-child(2){width:15px;height:15px;left:25%;animation-delay:1s;}
+.bubble:nth-child(3){width:8px;height:8px;left:40%;animation-delay:2s;}
+.bubble:nth-child(4){width:20px;height:20px;left:55%;animation-delay:3s;}
+.bubble:nth-child(5){width:12px;height:12px;left:70%;animation-delay:4s;}
+.bubble:nth-child(6){width:18px;height:18px;left:85%;animation-delay:1.5s;}
+.bubble:nth-child(7){width:10px;height:10px;left:15%;animation-delay:2.5s;}
+.bubble:nth-child(8){width:14px;height:14px;left:35%;animation-delay:0.5s;}
+.bubble:nth-child(9){width:16px;height:16px;left:60%;animation-delay:3.5s;}
+.bubble:nth-child(10){width:9px;height:9px;left:80%;animation-delay:2s;}
+
+/* ======== CONTENIDO PRINCIPAL ======== */
+.main-content {
+  flex: 1 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ======== PIE DE PÁGINA ======== */
+.footer {
+  background: linear-gradient(180deg, #444 0%, #1a1a1a 100%);
+  color: #fff;
+  text-align: center;
+  padding: 30px 15px;
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.footer-content a {
+  color: #00bfff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: #66d9ff;
+  text-decoration: underline;
+}
+
+.footer .social-icons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer .social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.footer .social-btn:hover {
+  background: rgba(0, 191, 255, 0.2);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.6);
+}
+
+.footer .social-btn img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer .social-btn:hover img {
+  opacity: 1;
+}
+
+
+
+/* ======== RESPONSIVE (CELULAR) ======== */
+@media (max-width: 600px) {
+  .card:hover {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card:hover img {
+    margin-bottom: 12px;
+  }
+}
+
+
+.card:hover h3 {
+  transform: translateY(-10px);
+}
+
+
+
+
+
+
+.main-content {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Recuadro gris */
+.ubicacion-box {
+  background-color: #e0e0e0;
+  width: 420px;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.ubicacion-box h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.ubicacion-box p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.ubicacion-box {
+  background-color: #e0e0e0;
+  width: 420px;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+  /* 👇 transiciones */
+  transition: 
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.ubicacion-box:hover {
+  transform: scale(1.05);          /* se agranda */
+  background-color: #5a5a5a;       /* cambia color */
+}
+
+.ubicacion-box:hover h2,
+.ubicacion-box:hover p {
+  color: #ffffff;                  /* texto blanco */
+}
+
+
+
+
+.mapa-css {
+  position: relative;
+  margin-top: 15px;
+  height: 200px;
+  background-color: #eef1f4;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+/* Calles */
+.calle {
+  position: absolute;
+  background-color: #c7ccd1;
+}
+
+.calle.horizontal {
+  height: 14px;
+  width: 100%;
+  top: 55%;
+}
+
+.calle.vertical {
+  width: 14px;
+  height: 100%;
+  left: 55%;
+}
+
+/* Pin */
+.pin {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -100%);
+  font-size: 22px;
+  text-align: center;
+}
+
+.pin span {
+  display: block;
+  font-size: 11px;
+  color: #333;
+  background: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-top: 2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Etiquetas */
+.label {
+  position: absolute;
+  font-size: 11px;
+  color: #555;
+  background: rgba(255,255,255,0.9);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.calle-6dic {
+  top: 58%;
+  left: 10px;
+}
+
+.calle-leonidas {
+  top: 20px;
+  left: 58%;
+}
+
+.calle-jeronimo {
+  bottom: 20px;
+  left: 58%;
+}
